@@ -1,3 +1,6 @@
+---using keys concepts and creating ERD diagrams
+----created data about job 
+
 create database job;
 use job;
 create table step
@@ -25,7 +28,7 @@ o_id int,foreign key(o_id) references organization(o_id),p_id int,foreign key(p_
 desc job;
 
 
-
+---creating data about bank
 
 create database bank;
 use bank;
@@ -43,7 +46,7 @@ customer_id int,foreign key(customer_id) references customer_personal_info(custo
 reference_id int,foreign key(reference_id)references customer_referrence_info(reference_id));
 
 
-
+---creating data about mobilemanagement
 
 
 
@@ -74,7 +77,7 @@ drop table mobile_master;
 
 
 
-
+----creating data about students 
 
 
 
@@ -97,7 +100,7 @@ create table sunj_teach
 group_id int,foreign key(group_id)references groupt(group_id));
 
 
-
+--creating data about car
 
 create database car;
 use car;
