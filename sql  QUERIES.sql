@@ -1,7 +1,18 @@
+--TOPIC: SQL QURIES
+--TOOL USED:MS SQL Server
+
+--creating database and using
+
 create database games;
 use games;
+
+--Creating tables and describing
+
 create table people(name varchar(255),p_id int,p_num bigint);
 desc people;
+
+--inserting values and show the table data
+
 insert into people
 values("baby",1,54776288869),("nithin",2,754738765),("johnny",3,64827487656),("ravi",4,7675297845),("nandu",3,87945826398);
 select*from people;
@@ -11,9 +22,16 @@ create table sales
 insert into sales
 values(1,"2022-02-17",29352,238,20),(2,"1999-03-19",10346,400,18),(3,"2003-04-21",39942,6543,09),(4,"2002-01-30",7723,200,10),
 (5,"1970-03-01",500,261,2);
+
+--using select query for show the data in the table
+
 select*from sales;
 select s_id,s_date, amount/boxes from sales;
 select s_id,s_date, amount/boxes as 'total amount'from sales;
+
+-- using where clause for filtering tha data in the table
+---order by is using for sort the result set in asc and desc order
+
 select * from sales
 where amount>1000;
 select * from sales
@@ -49,6 +67,9 @@ where s_person like "b%";
 select * from teams
 where s_person like "%g%";
 select * from sales;
+
+--the case expressin goes through conditions and returns a value when the first condition is met
+
 select s_date,amount,
 case when amount<1000 then"under 1K"
 when amount<5000 then "under 5k"
@@ -56,6 +77,9 @@ when amount<100000 then "under 10k"
 else "10k or more"
 end as "amont category"
 from sales;
+
+--using joins to combine rows from two or more tables
+
 select s.s_date,s.amount,p.name,s.s_id,p.p_id from sales as s 
 join people as p on p.p_id=s.s_id;
 select s.s_date,s.amount,p.name from sales as s 
